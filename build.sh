@@ -2,7 +2,7 @@
 
 BUILD_ROOT="$PWD"
 QSSI_ROOT="${BUILD_ROOT}/LA.QSSI.13.0"
-VENDOR_ROOT="${BUILD_ROOT}/LA.UM.9.14.4"
+VENDOR_ROOT="${BUILD_ROOT}/LA.UM.9.14.1"
 
 function build_qssi {
     cd "$QSSI_ROOT"
@@ -17,7 +17,7 @@ function build_target {
 
     source build/envsetup.sh
     lunch lahaina-userdebug
-    ./build.sh dist --target_only -j "$(nproc --all)"
+    ./build.sh dist --target_only EXPERIMENTAL_USE_OPENJDK9=1.8 -j "$(nproc --all)"
 }
 
 function build_super {
